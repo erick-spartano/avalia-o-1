@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class SistemaEscolar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double[] notas = new double[8];
+
+        System.out.println("Digite as 8 notas anuais:");
+        for (int i = 0; i < 8; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            notas[i] = scanner.nextDouble();
+        }
+
+        System.out.println("\nMédias Bimestrais:");
+        for (int i = 0; i < 4; i++) {
+            double mediaBimestre = (notas[i * 2] + notas[i * 2 + 1]) / 2;
+            System.out.printf("%dº Bimestre: %.1f%n", (i + 1), mediaBimestre);
+        }
+
+        double primeiroSemestre = (notas[0] + notas[1] + notas[2] + notas[3]) / 4;
+        double segundoSemestre = (notas[4] + notas[5] + notas[6] + notas[7]) / 4;
+
+        System.out.printf("\n1º Semestre: %.1f%n", primeiroSemestre);
+        System.out.printf("2º Semestre: %.1f%n", segundoSemestre);
+
+        double mediaFinal = (primeiroSemestre + segundoSemestre) / 2;
+        System.out.printf("\nMédia Final: %.1f%n", mediaFinal);
+
+        scanner.close();
+    }
+}
